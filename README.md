@@ -1,2 +1,2 @@
-# nprg030_zapoctak
-Zápočtový program z Programováni +
+# PRIME FACTORIZATION FOR LARGE NUMBERS
+
