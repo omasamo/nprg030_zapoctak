@@ -132,42 +132,41 @@ while start == True:
     print ("Seed: ", seed)
     print ("Function variable: ", xinit )
     print ("Time limit: ", timelimit)
-    #checking the timelimit condition
-    if abs(timelimit) > 0:
-        starttime = time.time()
-        #call of pollard factorization
-        lst = PollarRho(numberi,xinit)
-        if time.time() >= starttime + abs(timelimit):
-            print("It takes more than your timelimit to factorize this number. The programs is closing now")
-            quit()
+        if is_prime(numberi):
+        print("The number you submitted for factorization is prime")
     else:
-        #call of pollard factorization
-        lst = PollarRho(numberi, xinit)
-    print("Possible prime factorization: " +  " ".join(str(z) for z in lst) )
-
-    check = 1
-    fail = 0
-    for l in lst:
-        if is_prime(l) == False:
-            print("Algorithm probably failed")
-            fail += 1
-        check = check*l
-    print ("We multiply all the factors to see if the algorithm factorized our number fully\n"
-           "The result is: " + "*".join(str(z) for z in lst) + " =",check)
-    #check if multiplication of factors are giving us original number
-    if check == numberi :
-        if fail != 0:
-            print("Multiplication of factors equals original number however the algorithm failed because not all the found factors are primes")
+        #checking the timelimit condition
+        if abs(timelimit) > 0:
+            starttime = time.time()
+            #call of pollard factorization
+            lst = PollarRho(numberi,xinit)
+            if time.time() >= starttime + abs(timelimit):
+                print("It takes more than your timelimit to factorize this number. The programs is closing now")
+                quit()
         else:
-            print("Multiplication of all prime factors equals original numberm the algorithm worked")
-    #possibility to rerun the program
+            #call of pollard factorization
+            lst = PollarRho(numberi, xinit)
+        print("Possible prime factorization: " +  " ".join(str(z) for z in lst) )
+
+        check = 1
+        fail = 0
+        for l in lst:
+            if is_prime(l) == False:
+                print("Algorithm probably failed")
+                fail += 1
+            check = check*l
+        print ("We multiply all the factors to see if the algorithm factorized our number fully\n"
+               "The result is: " + "*".join(str(z) for z in lst) + " =",check)
+        #check if multiplication of factors are giving us original number
+        if check == numberi :
+            if fail != 0:
+                print("Multiplication of factors equals original number however the algorithm failed because not all the found factors are primes")
+            else:
+                print("Multiplication of all prime factors equals original numberm the algorithm worked")
+        #possibility to rerun the program
     restart = input("Would you like to try again? For YES type Y, to end tap on any other alphanumerical key.")
     if restart == 'Y':
         start = True
     else:
         print("Thank you! Hope you had fun!")
         start = False
-
-
-
-
