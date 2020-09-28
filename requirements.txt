@@ -1,1 +1,3 @@
 here you can find dependencies:
+python 3.8 or higher
+modules: itertools, math, random, time
