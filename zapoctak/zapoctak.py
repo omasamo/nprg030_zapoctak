@@ -117,8 +117,8 @@ while start == True:
     elif rand != "E":
         seed = random.randint(1, numberi-1)
         xinit = random.randint(1, numberi - 1)
-        print ("Here are the results for randomized variables used in cycle detection algorithm\n\n")
-    # if answer is differetn from E and Y we quit the program
+        
+    # if answer is different from E and Y we quit the program
     else:
         print("Thank you for using our program!")
         quit ()
@@ -128,6 +128,7 @@ while start == True:
     timelimit = integerCheck(timelimit)
     print("\n\n")
     #Basic printing of variables and factorized number
+    print ("Here are the results for randomized variables used in cycle detection algorithm\n\n")
     print ("Factorized number: ", numberi)
     print ("Seed: ", seed)
     print ("Function variable: ", xinit )
